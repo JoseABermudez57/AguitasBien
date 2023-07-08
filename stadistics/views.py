@@ -13,11 +13,14 @@ def save_water_sample(request):
         condu = float(data.get('condu', 0.0))
         termo = float(data.get('termo', 0.0))
         otro_sensor = float(data.get('otroSensor', 0.0))
+        user_id = data.get('user_id')
 
-        sensor_data = Watersample(timestamp = datetime.datetime.now(),ph=ph, condu=condu, termo=termo, otroSensor=otro_sensor)
-        sensor_data.save()
-    
-        return JsonResponse({'message': 'Data saved correctly.', 'status': True})
+        if user_id is not None:
+            sensor_data = Watersample(timestamp=datetime.datetime.now(), ph=ph, condu=condu, termo=termo, otroSensor=otro_sensor, user_id=user_id)
+            sensor_data.save()
+            return JsonResponse({'message': 'Data saved correctly.', 'status': True})
+        else:
+            return JsonResponse({'message': 'Invalid user_id.', 'status': False})
     else:
         return JsonResponse({'message': 'Method not allowed.', 'status': False})
 

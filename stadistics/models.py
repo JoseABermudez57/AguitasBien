@@ -1,15 +1,21 @@
 from django.db import models
+#ForeignKey ?
+from Users.models import users
 
 # Create your models here.
 class Watersample(models.Model):
+    id = models.AutoField(primary_key=True)
     timestamp = models.DateTimeField()
     ph = models.FloatField()
     termo = models.FloatField()
     condu = models.FloatField()
     otroSensor = models.FloatField()
-    
+    #Relacion uno
+    user = models.ForeignKey(users, on_delete=models.CASCADE, related_name='watersamples')
+
+
     def __str__(self):
-        return self.name
+        return str(self.user) + " - Watersample"
     
     def save(self, *args, **kwargs):
         attributes = ['ph', 'termo', 'condu', 'otroSensor']
