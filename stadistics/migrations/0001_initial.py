@@ -17,8 +17,9 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('timestamp', models.DateTimeField()),
                 ('ph', models.FloatField()),
-                ('temperature', models.FloatField()),
-                ('conductivity', models.FloatField()),
+                ('termo', models.FloatField()),
+                ('condu', models.FloatField()),
+                ('otroSensor', models.FloatField()),
             ],
         ),
         migrations.CreateModel(
