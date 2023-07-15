@@ -81,10 +81,10 @@ WSGI_APPLICATION = 'AguitasBien.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'usuarios',
-        'USER':'root',
-        'PASSWORD':'',
-        'HOST':'localhost',
+        'NAME': 'aguitasdb',
+        'USER':'admin',
+        'PASSWORD':'admin123',
+        'HOST':'aguitasbien-1.caplatmpdgbx.us-east-1.rds.amazonaws.com',
         'PORT':'3306'
     }
 }
